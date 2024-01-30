@@ -1,0 +1,47 @@
+{
+  "name": "@meteor-web3/hooks",
+  "version": "1.0.2",
+  "description": "React hooks of meteor app.",
+  "types": "dist/esm/index.d.ts",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:esm": "tsc -p tsconfig.json",
+    "build:cjs": "tsc -p tsconfig-cjs.json",
+    "build": "rimraf ./dist && pnpm build:esm && pnpm build:cjs",
+    "format": "prettier --config .prettierrc . --write",
+    "lint": "eslint . --ext .ts,.tsx",
+    "lint:fix": "eslint . --ext .ts,.tsx --fix",
+    "prepare": "husky install",
+    "doc": "pnpm typedoc src/index.ts --out docs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@arcstone/arcstone-sdk": "^1.0.2",
+    "@meteor-web3/connector": "^1.0.0",
+    "@meteor-web3/model-parser": "^1.0.0",
+    "react": "17.0.2"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.196",
+    "@types/react": "17.0.2",
+    "typescript": "^5.1.6",
+    "@typescript-eslint/eslint-plugin": "^6.1.0",
+    "@typescript-eslint/parser": "^6.2.1",
+    "eslint": "^8.45.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.28.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-react": "^7.33.1",
+    "husky": "^8.0.3",
+    "prettier": "^3.0.3",
+    "rimraf": "^5.0.5",
+    "typedoc": "^0.25.4"
+  }
+}
