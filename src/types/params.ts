@@ -47,9 +47,7 @@ export type CreateIndexFileResult = Awaited<
 
 export type MonetizeFileArgs = {
   chainId: number;
-  modelId: string;
-  fileName?: string;
-  fileContent: FileContent;
+  fileId: string;
   actionsConfig: {
     collectAction?: {
       currency: string;
@@ -65,7 +63,6 @@ export type MonetizeFileArgs = {
       accessibleShareAmount: BigNumberish;
     };
   };
-  timestamp?: number;
   withSig?: boolean;
 };
 
