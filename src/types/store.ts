@@ -54,7 +54,8 @@ export type FileResult = {
 };
 
 export type MeteorContextType = {
-  connector: Connector;
+  connector?: Connector;
+  setConnector: (connector: Connector) => Promise<void> | void;
   state: {
     appId?: string;
     address?: string;
