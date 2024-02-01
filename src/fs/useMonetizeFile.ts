@@ -47,13 +47,13 @@ export const useMonetizeFile = (params?: {
         }
 
         const dataToken = new DataToken({
+          fileId: args.fileId,
           chainId: args.chainId,
           connector,
         });
 
-        const date = new Date().toISOString();
+        const monetizeResult = await dataToken.monetizeFile(args);
 
-        const monetizeResult = await dataToken.createTokenFile(args);
         if (
           actionFilesMap &&
           actionFilesMap[monetizeResult.fileContent.file.fileId]
