@@ -13,10 +13,11 @@ export const useStore = () => {
     throw METEOR_CONTEXT_PROVIDER_ERROR;
   }
 
-  const { connector, state } = context;
+  const { connector, setConnector, state } = context;
 
   return {
     connector,
+    setConnector,
     ...state,
   };
 };
