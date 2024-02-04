@@ -6,6 +6,7 @@ import {
   StructuredFolder,
 } from "@meteor-web3/connector";
 
+import { METEOR_CONNECTOR_UNDEFINED } from "../errors";
 import { useStore } from "../store";
 import { useAction } from "../store";
 import { CreateActionFileArgs, MutationStatus, RequiredByKeys } from "../types";
@@ -37,6 +38,9 @@ export const useCreateActionFile = (params?: {
   const createActionFile = useCallback(
     async (args: CreateActionFileArgs) => {
       try {
+        if (!connector) {
+          throw METEOR_CONNECTOR_UNDEFINED;
+        }
         setStatus(MutationStatus.Pending);
         if (params?.onPending) {
           params.onPending(args);

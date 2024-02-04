@@ -6,6 +6,7 @@ import {
   StructuredFolder,
 } from "@meteor-web3/connector";
 
+import { METEOR_CONNECTOR_UNDEFINED } from "../errors";
 import { useStore } from "../store";
 import { useAction } from "../store";
 import { CreateBareFileArgs, MutationStatus } from "../types";
@@ -48,6 +49,9 @@ export const useCreateBareFile = (params?: {
   const createBareFile = useCallback(
     async (args: CreateBareFileArgs) => {
       try {
+        if (!connector) {
+          throw METEOR_CONNECTOR_UNDEFINED;
+        }
         setStatus(MutationStatus.Pending);
         if (params?.onPending) {
           params.onPending(args);

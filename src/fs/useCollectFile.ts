@@ -5,6 +5,7 @@ import { DataToken } from "@arcstone/arcstone-sdk/data-token";
 import { RequestType, SYSTEM_CALL } from "@meteor-web3/connector";
 import { BigNumber } from "ethers";
 
+import { METEOR_CONNECTOR_UNDEFINED } from "../errors";
 import { useStore } from "../store";
 import { CollectFileArgs, MutationStatus } from "../types";
 import { useMutation } from "../utils";
@@ -31,6 +32,9 @@ export const useCollectFile = (params?: {
   const collectFile = useCallback(
     async (args: CollectFileArgs) => {
       try {
+        if (!connector) {
+          throw METEOR_CONNECTOR_UNDEFINED;
+        }
         setStatus(MutationStatus.Pending);
         if (params?.onPending) {
           params.onPending(args);

@@ -3,6 +3,7 @@ import { useCallback } from "react";
 import { DataToken } from "@arcstone/arcstone-sdk/data-token";
 import { MirrorFileRecord, SYSTEM_CALL } from "@meteor-web3/connector";
 
+import { METEOR_CONNECTOR_UNDEFINED } from "../errors";
 import { useStore } from "../store";
 import { MutationStatus } from "../types";
 import { useMutation } from "../utils";
@@ -30,6 +31,9 @@ export const useLoadCreatedDataTokenFiles = (params?: {
 
   const loadCreatedDataTokenFiles = useCallback(async () => {
     try {
+      if (!connector) {
+        throw METEOR_CONNECTOR_UNDEFINED;
+      }
       setStatus(MutationStatus.Pending);
       if (params?.onPending) {
         params.onPending();

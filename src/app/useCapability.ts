@@ -2,6 +2,7 @@ import { useCallback } from "react";
 
 import { SYSTEM_CALL } from "@meteor-web3/connector";
 
+import { METEOR_CONNECTOR_UNDEFINED } from "../errors";
 import { useStore } from "../store";
 import { useAction } from "../store";
 import { MutationStatus } from "../types";
@@ -33,6 +34,9 @@ export const useCapability = (params?: {
   const createCapability = useCallback(
     async (appId: string) => {
       try {
+        if (!connector) {
+          throw METEOR_CONNECTOR_UNDEFINED;
+        }
         setStatus(MutationStatus.Pending);
         if (params?.onPending) {
           params?.onPending(appId);

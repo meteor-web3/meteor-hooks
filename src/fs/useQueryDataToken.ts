@@ -2,6 +2,7 @@ import { useCallback } from "react";
 
 import { DataToken } from "@arcstone/arcstone-sdk/data-token";
 
+import { METEOR_CONNECTOR_UNDEFINED } from "../errors";
 import { useStore } from "../store";
 
 export const useQueryDataToken = () => {
@@ -9,6 +10,9 @@ export const useQueryDataToken = () => {
 
   const loadDataTokensByCreator = useCallback(
     async (address: string) => {
+      if (!connector) {
+        throw METEOR_CONNECTOR_UNDEFINED;
+      }
       const dataToken = new DataToken({
         connector,
       });
@@ -19,6 +23,9 @@ export const useQueryDataToken = () => {
 
   const loadDataTokensByCollector = useCallback(
     async (address: string) => {
+      if (!connector) {
+        throw METEOR_CONNECTOR_UNDEFINED;
+      }
       const dataToken = new DataToken({
         connector,
       });

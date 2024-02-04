@@ -6,6 +6,7 @@ import {
   StructuredFolderRecord,
 } from "@meteor-web3/connector";
 
+import { METEOR_CONNECTOR_UNDEFINED } from "../errors";
 import { useStore } from "../store";
 import { useAction } from "../store";
 import { MutationStatus } from "../types";
@@ -58,6 +59,9 @@ export const useRemoveFiles = (params?: {
       syncImmediately?: boolean;
     }) => {
       try {
+        if (!connector) {
+          throw METEOR_CONNECTOR_UNDEFINED;
+        }
         setStatus(MutationStatus.Pending);
         if (params?.onPending) {
           params.onPending({

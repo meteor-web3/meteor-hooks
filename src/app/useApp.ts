@@ -4,6 +4,7 @@ import { AuthType, SYSTEM_CALL, WALLET } from "@meteor-web3/connector";
 
 import { useCapability } from "./useCapability";
 import { useWallet } from "./useWallet";
+import { METEOR_CONNECTOR_UNDEFINED } from "../errors";
 import { useAction, useStore } from "../store";
 import { ConnectResult, MutationStatus } from "../types";
 import { useMutation } from "../utils";
@@ -50,6 +51,9 @@ export const useApp = ({
   }, [autoConnect]);
 
   const autoConnectApp = useCallback(async () => {
+    if (!connector) {
+      throw METEOR_CONNECTOR_UNDEFINED;
+    }
     if (!address && !pkh) {
       const hasCapability = await connector.runOS({
         method: SYSTEM_CALL.checkCapability,

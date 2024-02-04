@@ -6,6 +6,7 @@ import {
   StructuredFolder,
 } from "@meteor-web3/connector";
 
+import { METEOR_CONNECTOR_UNDEFINED } from "../errors";
 import { useStore } from "../store";
 import { useAction } from "../store";
 import { MutationStatus } from "../types";
@@ -37,6 +38,9 @@ export const useChangeFolderBaseInfo = (params?: {
   const changeFolderBaseInfo = useCallback(
     async (args: RequestType[SYSTEM_CALL.updateFolderBaseInfo]) => {
       try {
+        if (!connector) {
+          throw METEOR_CONNECTOR_UNDEFINED;
+        }
         setStatus(MutationStatus.Pending);
         if (params?.onPending) {
           params.onPending(args);

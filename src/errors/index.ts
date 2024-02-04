@@ -14,3 +14,6 @@ export const DATATOKENID_NOT_EXIST = new Error(
 export const METEOR_CONTEXT_PROVIDER_ERROR = new Error(
   "useStore must be used within a MeteorHooksProvider",
 );
+export const METEOR_CONNECTOR_UNDEFINED = new Error(
+  "connector is not provided",
+);

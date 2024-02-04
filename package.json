@@ -26,12 +26,12 @@
     "@arcstone/arcstone-sdk": "^1.0.2",
     "@meteor-web3/connector": "^1.0.7",
     "@meteor-web3/model-parser": "^1.0.0",
+    "ethers": "^5.7.2",
     "react": "17.0.2"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.196",
     "@types/react": "17.0.2",
-    "typescript": "^5.1.6",
     "@typescript-eslint/eslint-plugin": "^6.1.0",
     "@typescript-eslint/parser": "^6.2.1",
     "eslint": "^8.45.0",
@@ -42,6 +42,7 @@
     "husky": "^8.0.3",
     "prettier": "^3.0.3",
     "rimraf": "^5.0.5",
-    "typedoc": "^0.25.4"
+    "typedoc": "^0.25.4",
+    "typescript": "^5.1.6"
   }
 }

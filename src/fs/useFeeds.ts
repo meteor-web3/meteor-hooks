@@ -3,6 +3,7 @@ import { useCallback } from "react";
 import { MirrorFile, ModelName, SYSTEM_CALL } from "@meteor-web3/connector";
 import { Model } from "@meteor-web3/model-parser";
 
+import { METEOR_CONNECTOR_UNDEFINED } from "../errors";
 import { useStore } from "../store";
 import { useAction } from "../store";
 import { LoadFilesResult, MutationStatus, RequiredByKeys } from "../types";
@@ -33,6 +34,9 @@ export const useFeeds = (params: {
 
   const loadFeeds = useCallback(async () => {
     try {
+      if (!connector) {
+        throw METEOR_CONNECTOR_UNDEFINED;
+      }
       setStatus(MutationStatus.Pending);
       if (params?.onPending) {
         params.onPending(params.model);
