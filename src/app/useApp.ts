@@ -45,10 +45,10 @@ export const useApp = ({
   } = useMutation<ConnectResult>();
 
   useEffect(() => {
-    if (autoConnect) {
+    if (autoConnect && connector) {
       autoConnectApp();
     }
-  }, [autoConnect]);
+  }, [autoConnect, connector]);
 
   const autoConnectApp = useCallback(async () => {
     if (!connector) {
