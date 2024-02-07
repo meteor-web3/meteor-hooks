@@ -20,13 +20,13 @@ export const MeteorContextProvider = ({
   autoInit?: boolean;
 }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const [connector, setConnector] = useState<Connector | undefined>(
-    autoInit ? new Connector(new MeteorWalletProvider()) : undefined,
+  const [connector, setConnector] = useState<Connector>(
+    autoInit ? new Connector(new MeteorWalletProvider()) : new Connector(),
   );
 
   const handleChangeConnector = async (newConnector: Connector) => {
     if (connector) {
-      connector.provider.destroy();
+      connector.destroy();
     }
     setConnector(newConnector);
   };

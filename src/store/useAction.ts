@@ -21,9 +21,16 @@ import {
 } from "../types";
 
 export const useAction = () => {
-  const context = useContext(MeteorContext);
+  let context = useContext(MeteorContext);
+  // if (context === undefined) {
+  //   throw METEOR_CONTEXT_PROVIDER_ERROR;
+  // }
   if (context === undefined) {
-    throw METEOR_CONTEXT_PROVIDER_ERROR;
+    context = {
+      dispatch: () => {
+        throw METEOR_CONTEXT_PROVIDER_ERROR;
+      },
+    } as any;
   }
 
   const { dispatch } = context;
