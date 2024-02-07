@@ -1,6 +1,6 @@
 {
   "name": "@meteor-web3/hooks",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "React hooks of meteor app.",
   "types": "dist/esm/index.d.ts",
   "main": "dist/cjs/index.js",
@@ -24,7 +24,7 @@
   "license": "MIT",
   "dependencies": {
     "@arcstone/arcstone-sdk": "^1.0.2",
-    "@meteor-web3/connector": "^1.0.16",
+    "@meteor-web3/connector": "^1.0.18",
     "@meteor-web3/model-parser": "^1.0.0",
     "ethers": "^5.7.2",
     "react": "18.2.0"
