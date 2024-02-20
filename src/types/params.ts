@@ -1,3 +1,4 @@
+import { Model } from "@dataverse/dapp-table";
 import {
   Chain,
   ReturnType,
@@ -8,7 +9,6 @@ import {
   MirrorFile,
   FileContent,
 } from "@meteor-web3/connector";
-import { Model } from "@meteor-web3/dapp-table";
 import { BigNumber, BigNumberish } from "ethers";
 
 export enum FileType {
