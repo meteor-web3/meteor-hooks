@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 
 import { MirrorFile, ModelName, SYSTEM_CALL } from "@meteor-web3/connector";
-import { Model } from "@meteor-web3/model-parser";
+import { Model } from "@meteor-web3/dapp-table";
 
 import { METEOR_CONNECTOR_UNDEFINED } from "../errors";
 import { useStore } from "../store";

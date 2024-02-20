@@ -8,7 +8,7 @@ import {
   MirrorFile,
   FileContent,
 } from "@meteor-web3/connector";
-import { Model } from "@meteor-web3/model-parser";
+import { Model } from "@meteor-web3/dapp-table";
 import { BigNumber, BigNumberish } from "ethers";
 
 export enum FileType {
