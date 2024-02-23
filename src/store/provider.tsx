@@ -25,10 +25,10 @@ export const MeteorContextProvider = ({
   );
 
   const handleChangeConnector = async (newConnector: Connector) => {
-    if (connector) {
-      connector.destroy();
+    if (newConnector !== connector) {
+      connector?.destroy?.();
+      setConnector(newConnector);
     }
-    setConnector(newConnector);
   };
 
   return (
