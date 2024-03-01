@@ -69,7 +69,7 @@ export const useApp = ({
           await connector.connectWallet({
             wallet: connectResult.wallet,
           });
-          const currentPkh = connector.getCurrentPkh();
+          const currentPkh = await connector.getCurrentPkh();
           actionCreateCapability({ pkh: currentPkh, appId });
         }
       }

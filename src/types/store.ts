@@ -4,6 +4,7 @@ import {
   WALLET,
   StructuredFolderRecord,
   MirrorFile,
+  BaseProvider,
 } from "@meteor-web3/connector";
 import {
   FileContent,
@@ -55,7 +56,7 @@ export type FileResult = {
 
 export type MeteorContextType = {
   connector: Connector;
-  setConnector: (connector: Connector) => Promise<void> | void;
+  setBaseProvider: (newProvider: BaseProvider) => Promise<void> | void;
   state: {
     appId?: string;
     address?: string;
