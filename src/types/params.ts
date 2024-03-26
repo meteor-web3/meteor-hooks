@@ -19,6 +19,17 @@ export enum FileType {
 
 export type CreateIndexFileArgs = RequestType[SYSTEM_CALL.createIndexFile];
 
+export type CreateTokenFileArgs = CreateIndexFileArgs & {
+  chainId: number;
+  actionsConfig: {
+    collectAction?: {
+      currency: string;
+      amount: BigNumberish;
+      totalSupply?: BigNumberish;
+    };
+  };
+};
+
 export type ConnectWalletResult = {
   address: string;
   chain: Chain;
