@@ -20,4 +20,5 @@ export * from "./useUnlockFile";
 export * from "./useCollectFile";
 export * from "./useMoveFiles";
 export * from "./useRemoveFiles";
+export * from "./useCreateTokenFile";
 export * from "./useQueryDataToken";
