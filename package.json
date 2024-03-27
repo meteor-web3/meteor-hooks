@@ -1,6 +1,6 @@
 {
   "name": "@meteor-web3/hooks",
-  "version": "1.0.20",
+  "version": "1.0.21",
   "description": "React hooks of meteor app.",
   "types": "dist/esm/index.d.ts",
   "main": "dist/cjs/index.js",
@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "@dataverse/dapp-table": "^1.0.1",
-    "@pyra-marketplace/assets-sdk": "^1.0.9",
+    "@pyra-marketplace/assets-sdk": "^1.0.10",
     "ethers": "^5.7.2",
     "react": "18.2.0"
   },
