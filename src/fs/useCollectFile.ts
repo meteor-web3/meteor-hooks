@@ -1,8 +1,7 @@
 import { useCallback } from "react";
 
-import { DataAssetParser } from "@arcstone/arcstone-sdk/data-asset";
-import { DataToken } from "@arcstone/arcstone-sdk/data-token";
-import { RequestType, SYSTEM_CALL } from "@meteor-web3/connector";
+import { DataAssetParser } from "@pyra-marketplace/assets-sdk/data-asset";
+import { DataToken } from "@pyra-marketplace/assets-sdk/data-token";
 import { BigNumber } from "ethers";
 
 import { METEOR_CONNECTOR_UNDEFINED } from "../errors";

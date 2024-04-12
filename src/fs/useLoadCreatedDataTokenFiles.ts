@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 
-import { DataToken } from "@arcstone/arcstone-sdk/data-token";
-import { MirrorFileRecord, SYSTEM_CALL } from "@meteor-web3/connector";
+import { MirrorFileRecord } from "@meteor-web3/connector";
+import { DataToken } from "@pyra-marketplace/assets-sdk/data-token";
 
 import { METEOR_CONNECTOR_UNDEFINED } from "../errors";
 import { useStore } from "../store";
